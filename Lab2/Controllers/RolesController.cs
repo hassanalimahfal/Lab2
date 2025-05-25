@@ -23,7 +23,7 @@ namespace Lab2.Controllers
             var rols =await roleManager.Roles.ToListAsync();
             return View(rols);
         }
-
+        //lll
         public IActionResult Create() 
         {
             return View();
