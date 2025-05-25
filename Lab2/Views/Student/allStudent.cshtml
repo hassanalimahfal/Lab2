@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Student>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@*44444444444444444444444444444444444444444444444444444444444444444444444444444*@
+<div id="view-all">
+    @await Html.PartialAsync("_ViewAll", Model)
+</div>
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

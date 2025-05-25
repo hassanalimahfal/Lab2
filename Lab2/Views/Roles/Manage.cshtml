@@ -1,0 +1,32 @@
+﻿@model UserRolesVM
+@*اذكا كانت المودل لاتساوي النل*@
+@if(Model != null)
+{
+    <h4>Id: @Model.UserId</h4>
+    <h1>Name: @Model.FullName</h1>
+    <h1>UserName: @Model.UserName</h1>
+
+    @*عشان هذولا البيانات يرتسلو نجي نخليهم داخل الفورم*@
+    
+    @*كيف نعرض اليست نعمله فور ايش*@
+    @* هنا نقله لاوين يروح الفروم وايش نوع الداله *@
+   <form asp-action="Manage" method="post" >    @*انتقل الى الداله الي اسمها ونوعها ميثود بوست method  post باروح انشاءها  *@
+       <div class="text-danger" asp-validation-summary="All"></div> @*اعرضلي كل الاخطاء*@
+        <input type="hidden" asp-for="UserId"/>    @*انتقل الى اليوزر ايدي *@
+        <input type="hidden" asp-for="FullName" />
+        <input type="hidden" asp-for="UserName" />
+        @for(int i=0; i< Model.Roles.Count; i++)
+        {
+            <label asp-for="Roles[i].Checked">@Model.Roles[i].Name</label>
+           
+            <input  asp-for="Roles[i].Checked"/>
+
+            <input type="hidden" asp-for="Roles[i].Name" />
+            <input type="hidden" asp-for="Roles[i].Id" />
+            <br />
+       
+        }
+        <button class="btn btn-primary"> send</button>
+    </form>
+         
+ }

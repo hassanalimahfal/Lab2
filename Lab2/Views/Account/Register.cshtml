@@ -1,0 +1,36 @@
+﻿@{
+    Layout = "_AccountLayout";
+}
+@model UserVM
+
+<h2>Register User </h2>
+
+<form asp-action="Register" method="post">
+    <div class="alert-danger" asp-validation-summary="All"></div>
+    
+    <label asp-for="FullName"></label>
+    <span class="text-danger" asp-validation-for="FullName"></span>
+    <input asp-for="FullName" />
+    <br />
+
+    <label asp-for="UserName"></label>
+    <span class="text-danger" asp-validation-for="UserName"></span>
+    <input asp-for="UserName" />
+    <br />
+
+    <label asp-for="Password"></label>
+    <span class="text-danger" asp-validation-for="Password"></span>
+    <input asp-for="Password" />
+    <br />
+
+    <label asp-for="ConfirmPassword"></label>
+    <span class="text-danger" asp-validation-for="ConfirmPassword"></span>
+    <input asp-for="ConfirmPassword" />
+    <br />
+    
+    <label asp-for="Address"></label>
+    <span class="text-danger" asp-validation-for="Address"></span>
+    <input asp-for="Address" />
+    <br />
+    <button class="btn btn-primary" type="submit" >Register</button>
+</form>

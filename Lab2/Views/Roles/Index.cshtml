@@ -1,0 +1,39 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model IEnumerable<IdentityRole>
+
+
+<h1>Roles Index</h1>
+@*انتقل الى صفحة الكريات*@
+<a asp-action="Create">Add New</a> 
+@if (Model is not null)
+{
+   <table class="table table-bordered">
+       <thead>
+           <tr>
+               <th>Id</th>
+               <th>Name</th>
+                <th>Actions</th>
+           </tr>
+       </thead>
+       <tbody>
+           @foreach (var item in Model)
+           {
+               <tr>
+                   <td>@item.Id</td>
+                   <td>@item.Name</td>
+                
+                   <td>
+                       <a asp-route-id="@item.Id" asp-action="Edit" class="btn btn-primary">Edit</a>
+                        <a onclick="showInPopup('@Url.Action("AddOrEdit","Student",new {id=item.Id},Context.Request.Scheme)','Update Transaction')" class="btn btn-info text-white"><i class="fas fa-pencil-alt"></i> Edit</a>
+                       <a asp-route-id="@item.Id" asp-action="Delete" class="btn btn-danger">Delete</a>
+                     
+
+                   </td>
+               </tr>
+           }
+       </tbody>
+   </table>
+}
+<!-- Button trigger modal -->
+
+

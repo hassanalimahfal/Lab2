@@ -1,0 +1,15 @@
+﻿@model string
+
+<h2>In Craete Role </h2>
+@*هنا ارسل للكريات*@
+<form asp-action="Create" method="post">
+    <div class="alert-danger" asp-validation-summary="All"></div>
+
+    <label for="name">Role Name:</label>
+  
+    <input name="name" />
+
+
+    <br />
+    <button class="btn btn-primary" type="submit">Add</button>
+</form>

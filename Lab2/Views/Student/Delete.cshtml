@@ -1,0 +1,20 @@
+﻿
+@model Student
+
+<h2>In Delete </h2>
+
+<form asp-action="Delete" method="post">
+    <div class="alert-danger" asp-validation-summary="All"></div>
+    <h3 class="alert alert-danger">Are u sure ?</h3>
+    <label asp-for="Name"></label>
+    <span class="text-danger" asp-validation-for="Name"></span>
+    <input readonly asp-for="Name" />
+
+    <br />
+    <label asp-for="Age">Student Age</label>
+    <span class="text-danger" asp-validation-for="Age"></span>
+    <input readonly asp-for="Age" />
+    <br />
+    <button class="btn btn-primary" type="submit" >Delete</button>
+    <a asp-action="Index" class="btn btn-primary" >Cancel</a>
+</form>

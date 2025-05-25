@@ -1,0 +1,25 @@
+﻿@model Subject
+
+<h2>In Craete </h2>
+
+<form asp-action="Create" method="post">
+    <div class="alert-danger" asp-validation-summary="All"></div>
+    
+    <label asp-for="Name"></label>
+    <span class="text-danger" asp-validation-for="Name"></span>
+    <input asp-for="Name" />
+
+    <br />
+    <label asp-for="TeacherId"></label>
+    <span class="text-danger" asp-validation-for="TeacherId"></span>
+    <select asp-for="TeacherId" asp-items='@new SelectList(ViewData["teachers"] as List<Teacher>, "Id", "Name")'></select>
+    <br />
+
+
+
+    <label asp-for="Details"></label>
+    <span class="text-danger" asp-validation-for="Details"></span>
+    <input asp-for="Details" />
+    <br />
+    <button class="btn btn-primary" type="submit" >Add</button>
+</form>

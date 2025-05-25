@@ -1,0 +1,43 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model IEnumerable<UserVM>
+@*IEnumerable تشمل اليست بكل انواعها *@
+
+
+<h1>Roles Index</h1>
+@*Add new باتكون تنقلني الى الرجستر *@
+<a asp-action="Register">Add New</a>
+@if (Model is not null)
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>UserName</th>
+                <th>FullName</th>
+                <th>Address</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.UserName</td>
+                    <td>@item.FullName</td>
+                    <td>@item.Address</td>
+
+
+                    <td>
+                        <a asp-route-id="@item.Id" asp-action="Edit" class="btn btn-primary">Edit</a>             
+                        <a asp-route-id="@item.Id" asp-action="Delete" class="btn btn-danger">Delete</a>
+                        <a asp-controller="Roles"  asp-action="Manage" asp-route-id="@item.Id" class="btn btn-danger">Roles</a>
+                        @*"Manage" asp-controller="Roles"  هنا نضيف اكشن اسمها مانق واحمدد الكنترولار لانه امكن ماتكنش في نفس الكنترولار هذا في كنترولار اخر حق الصلاحيات اسمه رولس ا *@
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+<!-- Button trigger modal -->

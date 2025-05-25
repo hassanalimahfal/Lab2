@@ -1,0 +1,5 @@
+
+
+
+Scaffold-DbContext "Server=.;Database=group13;Trusted_Connection = yes;" Microsoft.EntityFrameworkCore.SqlServer -o Models -DataAnnotations 
+

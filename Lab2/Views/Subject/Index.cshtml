@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Subject>
+@{
+}
+<h1>Subject Index</h1>
+<a asp-action="Create">Add New</a>
+@if (Model is not null)
+{
+   <table class="table table-bordered">
+       <thead>
+           <tr>
+               <th>Id</th>
+               <th>Name</th>
+               <th>Teacher</th>
+               <th>Details</th>
+               <th>Actions</th>
+           </tr>
+       </thead>
+       <tbody>
+           @foreach (var item in Model)
+           {
+               <tr>
+                   <td>@item.Id</td>
+                   <td>@item.Name</td>
+                   @if (item.Teacher != null)
+                   {
+                        <td>@item.Teacher.Name</td>
+                    }
+                    else
+                    {
+                        <td>@item.TeacherId</td>
+                    }
+                    <td>@item.Details</td>
+
+                   <td>
+                       <a asp-route-id="@item.Id" asp-action="Edit" class="btn btn-primary">Edit</a>
+                       <a asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                       <a asp-route-id="@item.Id"  class="btn btn-warning">Stop</a>
+
+                   </td>
+               </tr>
+           }
+       </tbody>
+   </table>
+}
+else{
+    <div class="alert alert-info">No Data Found</div>
+}
+@*<h2>Name2: @ViewData["n2"]</h2>*@
